@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Atc_Pavlodar — Алгоритмы знают нас лучше чем мы сами</title>
+  <link rel="stylesheet" href="/style.css" />
+  
+</head>
+
+
+  <header>
+    <h1>Atc_Pavlodar</h1>
+    <p>Алгоритмы знают нас лучше чем мы сами</p>
+  </header>
+
+ <nav>
+   <a href="/Read.html" class="bord-click">Читать</a>
+    <a href="/lern.html" class="bord-click1">Изучать</a>
+    <a href="/play.html" class="bord-click2">Играть</a>
+  </nav>
+<style>
+  .bord-click {
+  position: relative;
+  text-decoration: none;
+  
+  display: inline-block;           /* Чтобы transform работал правильно */
+  text-decoration: none;
+  transition: transform 0.3s ease; /* Плавный переход */
+  font-size: 16px;
+
+  
+}
+
+.bord-click:hover {
+  transform: scale(1.2);  
+}
+
+  .bord-click1 {
+  position: relative;
+  text-decoration: none;
+  color: black;
+  display: inline-block;           /* Чтобы transform работал правильно */
+  text-decoration: none;
+  transition: transform 0.3s ease; /* Плавный переход */
+  font-size: 16px;
+
+  
+}
+
+.bord-click1:hover {
+  transform: scale(1.2);  
+}
+
+  .bord-click2 {
+  position: relative;
+  text-decoration: none;
+  display: inline-block;           /* Чтобы transform работал правильно */
+  text-decoration: none;
+  transition: transform 0.3s ease; /* Плавный переход */
+  font-size: 16px;
+
+  
+}
+
+.bord-click2:hover {
+  transform: scale(1.2);  
+}
+
+
+
+
+</style>
+
+<body>
+  <div style="
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  max-width: 600px;
+  margin: 40px auto;
+  font-family: Arial, sans-serif;
+  transition: transform 0.3s ease;
+" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+
+  <h2 style="font-size: 24px; text-align: center; margin-bottom: 10px;">
+    📊 Как алгоритм «угадывает» твои действия?
+  </h2>
+
+  <p style="font-size: 16px; color: #333; line-height: 1.5;">
+    Алгоритмы используют математические модели, чтобы находить закономерности в твоём поведении. Например, они применяют <b>байесовскую вероятность</b>:
+  </p>
+
+  <p style="font-size: 16px; color: #444; background: #f8f8f8; padding: 10px 15px; border-radius: 8px; font-family: 'Courier New', monospace; overflow-x: auto;">
+    P(интерес | просмотр) = [ P(просмотр | интерес) × P(интерес) ] / P(просмотр)
+  </p>
+
+  <p style="font-size: 16px; color: #333; line-height: 1.5;">
+    Это означает, что система не «угадывает», а <i>вычисляет вероятность</i> того, что тебе понравится видео, товар или статья — на основе того, как вели себя другие, похожие на тебя.
+  </p>
+
+</div>
+<div style="
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  max-width: 600px;
+  margin: 40px auto;
+  font-family: Arial, sans-serif;
+  transition: transform 0.3s ease;
+" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+
+  <h2 style="font-size: 24px; text-align: center; margin-bottom: 10px;">
+    📈 Метрики, которые заменяют эмпатию
+  </h2>
+
+  <p style="font-size: 16px; color: #333; line-height: 1.5;">
+    Алгоритмы не чувствуют, но они измеряют. Вместо эмоций они используют метрики, чтобы понять, хорошо ли они «понимают» тебя.
+  </p>
+
+  <ul style="font-size: 16px; color: #333; line-height: 1.6; padding-left: 20px;">
+    <li><b>Accuracy</b>: доля правильных предсказаний<br>
+      <span style="font-family: 'Courier New', monospace; background: #f8f8f8; padding: 2px 6px; border-radius: 4px;">
+        accuracy = (TP + TN) / (TP + TN + FP + FN)
+      </span>
+    </li>
+    <li><b>Loss function</b>: насколько алгоритм ошибается<br>
+      <span style="font-family: 'Courier New', monospace; background: #f8f8f8; padding: 2px 6px; border-radius: 4px;">
+        L = Σ (y - ŷ)<sup>2</sup>
+      </span>
+    </li>
+    <li><b>Gradient Descent</b>: как алгоритм учится на ошибках<br>
+      <span style="font-family: 'Courier New', monospace; background: #f8f8f8; padding: 2px 6px; border-radius: 4px;">
+        θ = θ - α ∇L(θ)
+      </span>
+    </li>
+  </ul>
+
+  <p style="font-size: 16px; color: #333; line-height: 1.5;">
+    Вместо сочувствия — формулы. Вместо сомнений — оптимизация.
+  </p>
+
+</div>
+
+<div style="
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    max-width: 600px;
+    margin: 40px auto;
+    font-family: Arial, sans-serif;
+    transition: transform 0.3s ease;
+  " onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+  
+    <h2 style="font-size: 24px; text-align: center; margin-bottom: 10px;">
+      🔍 Как YouTube подбирает видео для тебя?
+    </h2>
+
+    <p style="font-size: 16px; color: #333; line-height: 1.5;">
+      Рекомендательная система YouTube — это алгоритм машинного обучения, 
+      который анализирует твоё поведение: что ты смотришь, сколько времени, на что кликаешь и что пропускаешь.
+    </p>
+
+    <div style="
+      background-color: #eaf2ff;
+      padding: 10px;
+      border-radius: 10px;
+      margin: 20px 0;
+      font-family: monospace;
+      font-size: 14px;
+      white-space: pre-wrap;
+    ">
+Пользователь → История просмотров
+         ↓
+   Модель предсказания
+         ↓
+  Предсказание интересов
+         ↓
+Подбор видео → Показ в ленте
+    </div>
+
+    <a href="https://research.google.com/youtube8m/" target="_blank" style="
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 15px;
+      background-color: #007bff;
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 14px;
+    ">Подробнее на YouTube Research →</a>
+
+  </div>
+
+
+  <div style="
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  max-width: 600px;
+  margin: 40px auto;
+  font-family: Arial, sans-serif;
+  transition: transform 0.3s ease;
+" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+
+  <h2 style="font-size: 24px; text-align: center; margin-bottom: 10px;">
+    🎯 Как TikTok знает, что тебе интересно?
+  </h2>
+
+  <p style="font-size: 16px; color: #333; line-height: 1.5;">
+    TikTok анализирует, сколько секунд ты смотришь видео, ставишь ли лайки, комментируешь, пересматриваешь.
+    На основе этих данных алгоритм оценивает, какие видео похожи на то, что ты любишь.
+  </p>
+
+  <div style="
+    background-color: #eaf2ff;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 20px 0;
+    font-family: monospace;
+    font-size: 14px;
+    white-space: pre-wrap;
+  ">
+Видео → Время просмотра и поведение
+       ↓
+   Алгоритм оценки интереса
+       ↓
+  Классификация контента
+       ↓
+Похожие видео в твоей ленте
+  </div>
+
+  <a href="https://newsroom.tiktok.com/en-us/how-tiktok-recommends-videos-for-you" target="_blank" style="
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #ff0050;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+  ">Подробнее в TikTok Newsroom →</a>
+
+</div>
+
+
+<div style="
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  max-width: 600px;
+  margin: 40px auto;
+  font-family: Arial, sans-serif;
+  transition: transform 0.3s ease;
+" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+
+  <h2 style="font-size: 24px; text-align: center; margin-bottom: 10px;">
+    📸 Как Instagram решает, что показать первым?
+  </h2>
+
+  <p style="font-size: 16px; color: #333; line-height: 1.5;">
+    Алгоритм Instagram учитывает твои лайки, сохранения, переписки, а также то, сколько времени ты проводишь на посте. 
+    Это помогает ему сформировать персонализированную ленту и Reels.
+  </p>
+
+  <div style="
+    background-color: #eaf2ff;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 20px 0;
+    font-family: monospace;
+    font-size: 14px;
+    white-space: pre-wrap;
+  ">
+Поведение пользователя → Лайки, сторис, чаты
+          ↓
+    Модель ранжирования
+          ↓
+  Предсказание интересов
+          ↓
+  Посты и Reels в топе ленты
+  </div>
+
+  <a href="https://about.instagram.com/blog/announcements/instagram-ranking-explained" target="_blank" style="
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #d6249f;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+  ">Как работает алгоритм Instagram →</a>
+
+</div>
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Chat с OpenAI</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2em;
+    }
+    input, button, textarea {
+      font-size: 1em;
+      padding: 0.5em;
+      width: 100%;
+      margin-top: 1em;
+    }
+    #response {
+      white-space: pre-wrap;
+      margin-top: 1em;
+      background: #f3f3f3;
+      padding: 1em;
+      border-radius: 8px;
+    }
+  </style>
+<div style="
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    max-width: 600px;
+    margin: 40px auto;
+    font-family: Arial, sans-serif;
+    transition: transform 0.3s ease;
+  " onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+
+  <h2 style="font-size: 24px; text-align: center; margin-bottom: 10px;">
+    🎵 Как Spotify подбирает музыку для тебя?
+  </h2>
+
+  <p style="font-size: 16px; color: #333; line-height: 1.5;">
+    Рекомендательная система Spotify использует сложные алгоритмы и машинное обучение, 
+    которые анализируют твои прослушивания, любимые жанры и плейлисты, чтобы предложить идеальные треки.
+  </p>
+
+  <div style="
+    background-color: #eaf2ff;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 20px 0;
+    font-family: monospace;
+    font-size: 14px;
+    white-space: pre-wrap;
+  ">
+Пользователь → История прослушиваний
+         ↓
+    Алгоритмы анализа
+         ↓
+    Кластеризация вкусов
+         ↓
+Рекомендации треков → Плейлисты и Радио
+  </div>
+
+  <a href="https://engineering.atspotify.com/2020/05/how-spotify-recommends-music-to-you/" target="_blank" style="
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #1DB954;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+  ">Подробнее на Spotify Engineering →</a>
+
+</div>
+<div style="
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    max-width: 600px;
+    margin: 40px auto;
+    font-family: Arial, sans-serif;
+    transition: transform 0.3s ease;
+  " onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+
+  <h2 style="font-size: 24px; text-align: center; margin-bottom: 10px;">
+    📺 Как Netflix подбирает фильмы и сериалы для тебя?
+  </h2>
+
+  <p style="font-size: 16px; color: #333; line-height: 1.5;">
+    Netflix использует продвинутые алгоритмы машинного обучения, которые анализируют твои просмотры, оценки и время просмотра, 
+    чтобы предлагать именно те фильмы и сериалы, которые тебе понравятся.
+  </p>
+
+  <div style="
+    background-color: #eaf2ff;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 20px 0;
+    font-family: monospace;
+    font-size: 14px;
+    white-space: pre-wrap;
+  ">
+Пользователь → История просмотров
+         ↓
+     Анализ предпочтений
+         ↓
+     Кластеризация жанров
+         ↓
+Рекомендации фильмов и сериалов → Главная страница
+  </div>
+
+  <a href="https://netflixtechblog.com/tagged/recommendations" target="_blank" style="
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #e50914;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+  ">Подробнее на Netflix Tech Blog →</a>
+
+</div>
+
+
+</body>
+</html>
+
+

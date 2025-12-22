@@ -1,0 +1,83 @@
+body, * {
+  user-select: none; /* Запрет выделения текста */
+  -webkit-user-select: none; /* для Safari */
+  -moz-user-select: none; /* для Firefox */
+  -ms-user-select: none; /* для IE/Edge */
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #fefefe;
+    color: #222;
+    margin: 0 auto;
+    padding: 0 auto;
+    
+  }
+
+  header {
+    background: #4f46e5;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    background: #e0e7ff;
+    padding: 1rem;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: #1e3a8a;
+    font-weight: bold;
+  }
+
+  section {
+    max-width: 900px;
+    margin: auto;
+    padding: 2rem;
+  }
+
+  canvas {
+    display: block;
+    margin: 1rem auto;
+    border: 1px solid #ccc;
+  }
+
+  button {
+    padding: 0.5rem 1rem;
+    background: #4f46e5;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+
+.section {
+  padding: 0 auto;
+  margin: 0 auto;
+  max-width: 1300px;
+}
+h1 {
+  
+  
+  font-size: 36px;     /* увеличиваем размер текста */
+  text-align: center;  /* выравнивание по центру */
+  margin-bottom: 20px; /* отступ снизу (по желанию) */
+  padding: 0 auto;
+  margin: 0 auto;
+  max-width: 1300px;
+}
+
+h2 {
+  font-size: 32px;     /* увеличиваем размер текста */
+  text-align: center;  /* выравнивание по центру */
+  margin-bottom: 20px; /* отступ снизу (по желанию) */
+  padding: 0 auto;
+  margin: 0 auto;
+  max-width: 1300px;
+}

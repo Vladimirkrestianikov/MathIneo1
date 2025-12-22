@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Atc_Pavlodar— Исследуй рекурсию</title>
+  <link rel="stylesheet" href="/style.css" />
+  
+</head>
+<body>
+
+  <header>
+    <h1>Atc_Pavlodar</h1>
+    <p>Алгоритмы знают нас лучше чем мы сами</p>
+  </header>
+ 
+  <nav>
+    <a href="/Read.html" class="bord-click">Читать</a>
+    <a href="/lern.html" class="bord-click1">Изучать</a>
+    <a href="/play.html" class="bord-click2">Играть</a>
+  </nav>
+
+
+  <!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Игры про алгоритмы</title>
+  <style>
+    /* Стили только для контейнера игр */
+    .game-container {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      padding: 20px;
+      max-width: 800px;
+      margin: 30px auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .game-container h2 {
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    /* Игра 1: перетаскивание блоков */
+    .blocks, .dropzone {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 15px 0;
+      min-height: 70px;
+    }
+
+    .blocks {
+      user-select: none;
+    }
+
+    .block {
+      background-color: #cce5ff;
+      border: 2px solid #3399ff;
+      border-radius: 8px;
+      padding: 10px 18px;
+      font-size: 16px;
+      cursor: grab;
+      user-select: none;
+      min-width: 130px;
+      box-sizing: border-box;
+      transition: background-color 0.3s ease;
+    }
+
+    .block.dragging {
+      opacity: 0.5;
+    }
+
+    .dropzone {
+      border: 3px dashed #3399ff;
+      border-radius: 12px;
+      background-color: #e6f0ff;
+      min-height: 90px;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    .dropzone p {
+      color: #555;
+      font-style: italic;
+      margin: 0 auto;
+    }
+
+    /* Кнопки */
+    .button-group {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      padding: 10px 22px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      color: white;
+      background-color: #3399ff;
+      transition: background-color 0.3s ease;
+      user-select: none;
+      min-width: 140px;
+    }
+
+    button:hover {
+      background-color: #267acc;
+    }
+
+    button.clear {
+      background-color: #ff4c4c;
+    }
+
+    button.clear:hover {
+      background-color: #cc3d3d;
+    }
+
+    /* Результат анализа */
+    #result {
+      margin-top: 20px;
+      font-weight: 600;
+      font-size: 18px;
+      min-height: 24px;
+      color: #222;
+    }
+
+    /* Игра 2: викторина */
+    #quiz {
+      margin-top: 50px;
+      background: white;
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.05);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    #quiz .question {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      min-height: 70px;
+      color: #111;
+    }
+
+    #quiz .answers {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    #quiz .answers button {
+      background-color: #3399ff;
+      border-radius: 8px;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      color: white;
+      cursor: pointer;
+      text-align: left;
+      transition: background-color 0.3s ease;
+    }
+
+    #quiz .answers button:hover {
+      background-color: #267acc;
+    }
+
+    #quizResult {
+      margin-top: 20px;
+      font-weight: 700;
+      font-size: 18px;
+      min-height: 24px;
+      color: #222;
+      min-height: 24px;
+    }
+
+    #restartQuiz {
+      margin-top: 20px;
+      background-color: #ff9900;
+      min-width: 150px;
+    }
+
+    #restartQuiz:hover {
+      background-color: #cc7a00;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="game-container">
+
+    <!-- Игра 1: Алгоритм перетаскиванием -->
+    <h2>🧠 Собери свой рекомендательный алгоритм</h2>
+    <p>Перетащи блоки в зону, чтобы создать алгоритм рекомендации.</p>
+
+    <div class="blocks" id="blocksContainer">
+      <div class="block" draggable="true">⏱ Время просмотра</div>
+      <div class="block" draggable="true">❤️ Лайк</div>
+      <div class="block" draggable="true">💬 Комментарий</div>
+      <div class="block" draggable="true">🔁 Повтор просмотра</div>
+      <div class="block" draggable="true">📌 Сохранение</div>
+    </div>
+
+    <div class="dropzone" id="algorithmZone">
+      <p>Перетащи сюда блоки алгоритма</p>
+    </div>
+
+    <div class="button-group">
+      <button id="analyzeBtn">📊 Проверить эффективность</button>
+      <button id="clearBtn" class="clear">🗑 Очистить</button>
+    </div>
+
+    <div id="result"></div>
+
+    <!-- Игра 2: Викторина -->
+    <div id="quiz">
+      <h2>🎯 Викторина: Как работают алгоритмы?</h2>
+      <div class="question" id="questionText"></div>
+      <div class="answers" id="answerButtons"></div>
+      <div id="quizResult"></div>
+      <button id="restartQuiz" style="display:none;">Начать заново</button>
+    </div>
+
+  </div>
+
+<script>
+  // --- Игра 1: Перетаскивание блоков ---
+  const blocks = document.querySelectorAll('#blocksContainer .block');
+  const dropzone = document.getElementById('algorithmZone');
+  const analyzeBtn = document.getElementById('analyzeBtn');
+  const clearBtn = document.getElementById('clearBtn');
+  const result = document.getElementById('result');
+
+  blocks.forEach(block => {
+    block.addEventListener('dragstart', (e) => {
+      e.dataTransfer.setData('text/plain', block.textContent);
+      block.classList.add('dragging');
+    });
+    block.addEventListener('dragend', () => {
+      block.classList.remove('dragging');
+    });
+  });
+
+  dropzone.addEventListener('dragover', (e) => {
+    e.preventDefault();
+  });
+
+  dropzone.addEventListener('drop', (e) => {
+    e.preventDefault();
+    const data = e.dataTransfer.getData('text/plain');
+    const newBlock = document.createElement('div');
+    newBlock.className = 'block';
+    newBlock.textContent = data;
+    newBlock.setAttribute('draggable', 'false');
+    dropzone.appendChild(newBlock);
+
+    const p = dropzone.querySelector('p');
+    if (p) p.remove();
+  });
+
+  analyzeBtn.addEventListener('click', () => {
+    const items = dropzone.querySelectorAll('.block');
+    if (items.length === 0) {
+      result.textContent = "⚠️ Добавь хотя бы один блок!";
+      result.style.color = '#cc3300';
+      return;
+    }
+    const factors = Array.from(items).map(el => el.textContent);
+    let score = 0;
+    if (factors.includes('⏱ Время просмотра')) score += 2;
+    if (factors.includes('❤️ Лайк')) score += 2;
+    if (factors.includes('💬 Комментарий')) score += 1;
+    if (factors.includes('🔁 Повтор просмотра')) score += 2;
+    if (factors.includes('📌 Сохранение')) score += 1;
+
+    let message = '';
+    if (score >= 6) {
+      message = '🚀 Отлично! У тебя сильный алгоритм рекомендаций.';
+      result.style.color = '#2e7d32';
+    } else if (score >= 3) {
+      message = '🧪 Неплохо, но можно улучшить.';
+      result.style.color = '#ed6c02';
+    } else {
+      message = '⚠️ Алгоритм слишком слабый — добавь больше сигналов!';
+      result.style.color = '#cc3300';
+    }
+    result.textContent = message;
+  });
+
+  clearBtn.addEventListener('click', () => {
+    dropzone.innerHTML = '<p>Перетащи сюда блоки алгоритма</p>';
+    result.textContent = '';
+  });
+
+  // --- Игра 2: Викторина ---
+  const quizData = [
+    { question: "Какой сигнал чаще всего используется в TikTok для оценки интереса?", answers: [
+      { text: "Лайк", correct: false },
+      { text: "Комментарий", correct: false },
+      { text: "Полный просмотр видео", correct: true },
+      { text: "Подписка", correct: false }
+    ]},
+    { question: "Что YouTube учитывает при рекомендации видео?", answers: [
+      { text: "Название видео", correct: false },
+      { text: "Средняя длительность просмотра", correct: true },
+      { text: "Количество дизлайков", correct: false },
+      { text: "Возраст канала", correct: false }
+    ]},
+    { question: "Как Instagram определяет, какие истории показать первыми?", answers: [
+      { text: "По алфавиту", correct: false },
+      { text: "По частоте лайков на посты", correct: false },
+      { text: "По взаимодействию с аккаунтом", correct: true },
+      { text: "По времени создания истории", correct: false }
+    ]},
+    { question: "Что такое 'рекомендательный алгоритм'?", answers: [
+      { text: "Система, которая выбирает что показать пользователю", correct: true },
+      { text: "Алгоритм шифрования", correct: false },
+      { text: "Антивирусная программа", correct: false },
+      { text: "Программа для редактирования фото", correct: false }
+    ]},
+    { question: "Что влияет на то, что TikTok показывает в ленте?", answers: [
+      { text: "Рандом", correct: false },
+      { text: "История просмотров и взаимодействий", correct: true },
+      { text: "Количество подписчиков", correct: false },
+      { text: "Время суток", correct: false }
+    ]},
+    { question: "Что такое 'машинное обучение'?", answers: [
+      { text: "Процесс обучения компьютера на основе данных", correct: true },
+      { text: "Ручное программирование", correct: false },
+      { text: "Тип вируса", correct: false },
+      { text: "Язык программирования", correct: false }
+    ]},
+    { question: "Как YouTube измеряет вовлеченность?", answers: [
+      { text: "Через комментарии и лайки", correct: false },
+      { text: "Средняя длительность просмотра видео", correct: true },
+      { text: "Количество подписчиков", correct: false },
+      { text: "Число загрузок видео", correct: false }
+    ]},
+    { question: "Как Instagram выбирает рекламу для пользователя?", answers: [
+      { text: "Случайно", correct: false },
+      { text: "По интересам и поведению пользователя", correct: true },
+      { text: "По времени пребывания на сайте", correct: false },
+      { text: "По алфавиту", correct: false }
+    ]},
+    { question: "Что делает алгоритм TikTok с видео, которое пользователь пропускает?", answers: [
+      { text: "Показывает чаще", correct: false },
+      { text: "Показывает реже", correct: true },
+      { text: "Удаляет его", correct: false },
+      { text: "Отправляет другу", correct: false }
+    ]},
+    { question: "Что такое 'обучение с учителем'?", answers: [
+      { text: "Когда модель учится на размеченных данных", correct: true },
+      { text: "Когда модель учится сама без данных", correct: false },
+      { text: "Обновление операционной системы", correct: false },
+      { text: "Тип сети Wi-Fi", correct: false }
+    ]}
+  ];
+
+  let currentQuestion = 0;
+  let score = 0;
+  const questionText = document.getElementById('questionText');
+  const answerButtons = document.getElementById('answerButtons');
+  const quizResult = document.getElementById('quizResult');
+  const restartQuizBtn = document.getElementById('restartQuiz');
+
+  function showQuestion() {
+    clearQuizState();
+    const currentQuiz = quizData[currentQuestion];
+    questionText.textContent = currentQuiz.question;
+
+    currentQuiz.answers.forEach(answer => {
+      const button = document.createElement('button');
+      button.textContent = answer.text;
+      button.addEventListener('click', () => selectAnswer(answer.correct, button));
+      answerButtons.appendChild(button);
+    });
+  }
+
+  function clearQuizState() {
+    quizResult.textContent = '';
+    while (answerButtons.firstChild) {
+      answerButtons.removeChild(answerButtons.firstChild);
+    }
+  }
+
+  function selectAnswer(isCorrect, button) {
+    if (isCorrect) {
+      score++;
+      button.style.backgroundColor = '#2e7d32';
+    } else {
+      button.style.backgroundColor = '#cc3300';
+    }
+    // Блокируем все кнопки после выбора
+    Array.from(answerButtons.children).forEach(btn => {
+      btn.disabled = true;
+      // Подсвечиваем правильный ответ зелёным
+      const currentQuiz = quizData[currentQuestion];
+      const correctAnswer = currentQuiz.answers.find(ans => ans.correct);
+      if (btn.textContent === correctAnswer.text) {
+        btn.style.backgroundColor = '#2e7d32';
+      }
+    });
+
+    // Показываем кнопку Далее или Результат
+    setTimeout(() => {
+      currentQuestion++;
+      if (currentQuestion < quizData.length) {
+        showQuestion();
+      } else {
+        showQuizResult();
+      }
+    }, 1200);
+  }
+
+  function showQuizResult() {
+    clearQuizState();
+    questionText.textContent = 'Викторина завершена!';
+    quizResult.textContent = `Ты правильно ответил на ${score} из ${quizData.length} вопросов.`;
+    restartQuizBtn.style.display = 'inline-block';
+  }
+
+  restartQuizBtn.addEventListener('click', () => {
+    currentQuestion = 0;
+    score = 0;
+    restartQuizBtn.style.display = 'none';
+    showQuestion();
+  });
+
+  // Запуск викторины при загрузке страницы
+  showQuestion();
+
+</script>
+
+<recommendation-game></recommendation-game>
+
+<script>
+  class RecommendationGame extends HTMLElement {
+    constructor() {
+      super();
+      this.attachShadow({ mode: 'open' });
+      this.selected = [];
+      this.items = [
+        "Матрица", "Интерстеллар", "Начало", "Бойцовский клуб", "Форрест Гамп",
+        "Властелин колец", "Темный рыцарь", "Социальная сеть", "Паразиты", "Грань будущего",
+        "Аватар", "Титаник", "Гарри Поттер и философский камень", "Звёздные войны: Новая надежда",
+        "Назад в будущее", "Шрек", "Джокер", "Леон", "Отступники", "Король лев",
+        "В поисках Немо", "Дэдпул", "Игра престолов (сериал)", "Индиана Джонс: В поисках утраченного ковчега",
+        "Мстители: Финал", "Сияние", "Чужой", "Бегущий по лезвию", "Гладиатор", "Безумный Макс: Дорога ярости"
+      ];
+      this.similarityGroups = {
+        "Матрица": ["Начало", "Грань будущего", "Бегущий по лезвию"],
+        "Интерстеллар": ["Начало", "Темный рыцарь", "Аватар"],
+        "Начало": ["Матрица", "Интерстеллар", "Грань будущего"],
+        "Бойцовский клуб": ["Социальная сеть", "Отступники", "Джокер"],
+        "Форрест Гамп": ["Социальная сеть", "Король лев", "В поисках Немо"],
+        "Властелин колец": ["Грань будущего", "Гладиатор", "Аватар"],
+        "Темный рыцарь": ["Начало", "Интерстеллар", "Джокер"],
+        "Социальная сеть": ["Форрест Гамп", "Бойцовский клуб", "Отступники"],
+        "Паразиты": ["Социальная сеть", "Отступники", "Джокер"],
+        "Грань будущего": ["Матрица", "Властелин колец", "Начало"],
+        "Аватар": ["Интерстеллар", "Властелин колец", "Гладиатор"],
+        "Титаник": ["Аватар", "Король лев", "Форрест Гамп"],
+        "Гарри Поттер и философский камень": ["Звёздные войны: Новая надежда", "Индиана Джонс: В поисках утраченного ковчега"],
+        "Звёздные войны: Новая надежда": ["Гарри Поттер и философский камень", "Индиана Джонс: В поисках утраченного ковчега"],
+        "Назад в будущее": ["Шрек", "Грань будущего"],
+        "Шрек": ["Назад в будущее", "В поисках Немо"],
+        "Джокер": ["Темный рыцарь", "Бойцовский клуб", "Паразиты"],
+        "Леон": ["Отступники", "Джокер"],
+        "Отступники": ["Бойцовский клуб", "Социальная сеть", "Паразиты"],
+        "Король лев": ["Форрест Гамп", "Титаник"],
+        "В поисках Немо": ["Форрест Гамп", "Шрек"],
+        "Дэдпул": ["Мстители: Финал", "Бегущий по лезвию"],
+        "Игра престолов (сериал)": ["Властелин колец", "Гладиатор"],
+        "Индиана Джонс: В поисках утраченного ковчега": ["Звёздные войны: Новая надежда", "Гарри Поттер и философский камень"],
+        "Мстители: Финал": ["Дэдпул", "Темный рыцарь"],
+        "Сияние": ["Чужой", "Бегущий по лезвию"],
+        "Чужой": ["Сияние", "Бегущий по лезвию"],
+        "Бегущий по лезвию": ["Матрица", "Сияние", "Чужой"],
+        "Гладиатор": ["Властелин колец", "Аватар", "Игра престолов (сериал)"],
+        "Безумный Макс: Дорога ярости": ["Грань будущего", "Мстители: Финал"]
+      };
+
+      this.shadowRoot.innerHTML = `
+        <style>
+          :host {
+            display: block;
+            max-width: 600px;
+            margin: 20px auto;
+            font-family: Arial, sans-serif;
+          }
+          .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+          }
+          h2 {
+            margin-top: 0;
+          }
+          p {
+            margin-top: 0;
+            margin-bottom: 20px;
+          }
+          #itemList {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px 12px;
+          }
+          #itemList button {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: white;
+            transition: background-color 0.3s;
+            text-align: left;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+          #itemList button:hover:not(:disabled) {
+            background-color: #f0f0f0;
+          }
+          #itemList button:disabled {
+            background-color: #a0dca0;
+            border-color: #7bb87b;
+            cursor: default;
+          }
+          #resetBtn {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #ff6666;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            margin: 20px 0 10px 0;
+          }
+          #recommendation {
+            margin-top: 10px;
+            padding: 15px;
+            background-color: #e0ffe0;
+            border: 1px solid #b2ffb2;
+            border-radius: 5px;
+            min-height: 30px;
+            font-weight: bold;
+          }
+        </style>
+        <div class="container">
+          <h2>Что тебе нравится?</h2>
+          <p>Выбери 3 любимых фильма, чтобы алгоритм порекомендовал тебе четвёртый.</p>
+          <div id="itemList"></div>
+          <button id="resetBtn">Сбросить выбор</button>
+          <div id="recommendation"></div>
+        </div>
+      `;
+
+      this.itemList = this.shadowRoot.getElementById('itemList');
+      this.recommendation = this.shadowRoot.getElementById('recommendation');
+      this.resetBtn = this.shadowRoot.getElementById('resetBtn');
+    }
+
+    connectedCallback() {
+      this.renderButtons();
+      this.resetBtn.addEventListener('click', () => this.resetSelection());
+    }
+
+    createButton(text) {
+      const btn = document.createElement('button');
+      btn.textContent = text;
+      btn.title = text;
+      btn.addEventListener('click', () => this.handleSelection(text));
+      if (this.selected.includes(text)) {
+        btn.disabled = true;
+      }
+      return btn;
+    }
+
+    renderButtons() {
+      this.itemList.innerHTML = '';
+      this.items.forEach(item => {
+        const btn = this.createButton(item);
+        this.itemList.appendChild(btn);
+      });
+    }
+
+    handleSelection(item) {
+      if (this.selected.length === 3) {
+        this.resetSelection();
+        this.selected.push(item);
+      } else {
+        this.selected.push(item);
+      }
+      this.renderButtons();
+
+      if (this.selected.length === 3) {
+        this.recommend();
+      } else {
+        this.recommendation.textContent = '';
+      }
+    }
+
+    recommend() {
+      const score = {};
+      this.selected.forEach(item => {
+        (this.similarityGroups[item] || []).forEach(similar => {
+          if (!this.selected.includes(similar)) {
+            score[similar] = (score[similar] || 0) + 1;
+          }
+        });
+      });
+      const sorted = Object.entries(score).sort((a, b) => b[1] - a[1]);
+      if (sorted.length > 0) {
+        this.recommendation.textContent = `Рекомендация алгоритма: ${sorted[0][0]}`;
+      } else {
+        this.recommendation.textContent = 'Не удалось найти рекомендацию. Попробуй другие фильмы.';
+      }
+    }
+
+    resetSelection() {
+      this.selected = [];
+      this.recommendation.textContent = '';
+      this.renderButtons();
+    }
+  }
+
+  customElements.define('recommendation-game', RecommendationGame);
+</script>
+
+
+<algo-detective-game></algo-detective-game>
+
+<script>
+class AlgoDetectiveGame extends HTMLElement {
+  constructor() {
+    super();
+    this.attachShadow({mode: 'open'});
+
+    this.userTraits = [
+      { id: 'genre_comedy', label: 'Любит комедии', weight: 2, detail: 'Комедии чаще выбирают молодые' },
+      { id: 'genre_horror', label: 'Любит ужасы', weight: 1.5, detail: 'Ужасы популярны среди 18-35' },
+      { id: 'night_active', label: 'Активен ночью', weight: 2.5, detail: 'Ночные активности — признак молодёжи' },
+      { id: 'favorite_actor', label: 'Любит актёра Джонни Деппа', weight: 1.2, detail: 'Актёр популярен у всех возрастов' },
+      { id: 'likes_classics', label: 'Смотрит классику', weight: -2, detail: 'Любовь к классике часто у старшего поколения' },
+      { id: 'watch_freq_high', label: 'Смотрит фильмы часто', weight: 2, detail: 'Частый просмотр чаще у молодежи' },
+      { id: 'prefers_family', label: 'Предпочитает семейные фильмы', weight: -1.5, detail: 'Семейные фильмы часто смотрят взрослые' },
+      { id: 'uses_streaming', label: 'Пользуется стриминговыми сервисами', weight: 2.3, detail: 'Стриминг чаще у молодежи' },
+      { id: 'prefers_hd', label: 'Смотрит фильмы в HD качестве', weight: 1.8, detail: 'Предпочитают более молодые зрители' },
+      { id: 'likes_documentary', label: 'Любит документальные фильмы', weight: -1, detail: 'Документалистика популярна у среднего и старшего возраста' },
+      { id: 'prefers_series', label: 'Предпочитает сериалы', weight: 1.7, detail: 'Сериалы популярны у молодежи и среднего возраста' },
+      { id: 'uses_mobile', label: 'Смотрит фильмы на мобильном', weight: 2.0, detail: 'Мобильный просмотр больше у молодых' },
+      { id: 'prefers_4k', label: 'Смотрит фильмы в 4K', weight: 1.5, detail: 'Часто у технологичных молодых' },
+      { id: 'likes_action', label: 'Любит экшн-фильмы', weight: 2.1, detail: 'Экшн — фаворит молодежи' },
+      { id: 'prefers_old_movies', label: 'Смотрит старые фильмы', weight: -2.3, detail: 'Старые фильмы чаще предпочитают пожилые' },
+      { id: 'watch_time_evening', label: 'Смотрит вечером', weight: 0.5, detail: 'Вечерний просмотр у всех возрастов' },
+      { id: 'watch_time_night', label: 'Смотрит ночью', weight: 1.9, detail: 'Ночной просмотр — признак молодежи' },
+      { id: 'likes_romance', label: 'Любит романтические фильмы', weight: 0.7, detail: 'Романтика популярна у среднего возраста' },
+      { id: 'prefers_family_time', label: 'Смотрит вместе с семьёй', weight: -1.8, detail: 'Семейный просмотр — взрослые и старшие' },
+      { id: 'likes_thriller', label: 'Любит триллеры', weight: 1.6, detail: 'Триллеры популярны среди молодежи и среднего возраста' },
+    ];
+
+    this.selectedTraits = new Set();
+
+    this.shadowRoot.innerHTML = `
+      <style>
+        :host {
+          font-family: Arial, sans-serif;
+          max-width: 500px;
+          margin: 20px auto;
+          background: white;
+          padding: 20px;
+          border-radius: 10px;
+          box-shadow: 0 0 12px rgba(0,0,0,0.15);
+          user-select: none;
+          display: block;
+        }
+        h2 {
+          text-align: center;
+          margin-top: 0;
+        }
+        .traits-list {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          margin-bottom: 20px;
+          max-height: 300px;
+          overflow-y: auto;
+          border: 1px solid #ddd;
+          padding: 10px;
+          border-radius: 8px;
+          background: #fafafa;
+        }
+        label {
+          cursor: pointer;
+          user-select: none;
+          display: flex;
+          justify-content: space-between;
+          padding: 6px 12px;
+          border-radius: 5px;
+          transition: background-color 0.3s;
+        }
+        label:hover {
+          background-color: #e3f2fd;
+        }
+        input[type="checkbox"] {
+          margin-right: 10px;
+          transform: scale(1.2);
+          cursor: pointer;
+        }
+        .weight-bar-container {
+          height: 25px;
+          background: #eee;
+          border-radius: 12px;
+          overflow: hidden;
+          margin-bottom: 15px;
+        }
+        .weight-bar {
+          height: 25px;
+          width: 0%;
+          background-color: #2196f3;
+          transition: width 0.6s;
+          border-radius: 12px 0 0 12px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          font-weight: bold;
+          user-select: none;
+          font-size: 14px;
+        }
+        .weight-bar.negative {
+          background-color: #f44336;
+          border-radius: 0 12px 12px 0;
+        }
+        button {
+          width: 100%;
+          padding: 12px;
+          font-size: 1.1em;
+          border: none;
+          border-radius: 8px;
+          background-color: #2196f3;
+          color: white;
+          cursor: pointer;
+          user-select: none;
+          transition: background-color 0.3s;
+        }
+        button:hover:not(:disabled) {
+          background-color: #1769aa;
+        }
+        button:disabled {
+          background-color: #90caf9;
+          cursor: default;
+        }
+        .result {
+          margin-top: 20px;
+          font-size: 1.2em;
+          text-align: center;
+          font-weight: bold;
+          min-height: 60px;
+          user-select: text;
+        }
+        .explanation {
+          margin-top: 10px;
+          font-size: 0.9em;
+          color: #555;
+          white-space: pre-wrap;
+          user-select: text;
+        }
+      </style>
+
+      <h2>Алгоритмический детектив</h2>
+      <div class="traits-list" id="traitsList"></div>
+
+      <div>Влияние выбранных характеристик:</div>
+      <div class="weight-bar-container">
+        <div id="weightBar" class="weight-bar">0</div>
+      </div>
+
+      <button id="predictBtn" disabled>Сделать предсказание</button>
+
+      <div class="result" id="result"></div>
+      <div class="explanation" id="explanation"></div>
+    `;
+
+    this.traitsListEl = this.shadowRoot.getElementById('traitsList');
+    this.weightBarEl = this.shadowRoot.getElementById('weightBar');
+    this.predictBtn = this.shadowRoot.getElementById('predictBtn');
+    this.resultEl = this.shadowRoot.getElementById('result');
+    this.explanationEl = this.shadowRoot.getElementById('explanation');
+
+    this.renderTraits();
+
+    this.predictBtn.addEventListener('click', () => this.makePrediction());
+  }
+
+  renderTraits() {
+    this.userTraits.forEach(trait => {
+      const label = document.createElement('label');
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.id = trait.id;
+      checkbox.addEventListener('change', () => this.onTraitToggle(trait, checkbox.checked));
+
+      label.appendChild(checkbox);
+      label.appendChild(document.createTextNode(trait.label));
+
+      this.traitsListEl.appendChild(label);
+    });
+  }
+
+  onTraitToggle(trait, checked) {
+    if (checked) {
+      this.selectedTraits.add(trait);
+    } else {
+      this.selectedTraits.delete(trait);
+    }
+    this.updateWeightBar();
+    this.predictBtn.disabled = this.selectedTraits.size === 0;
+    this.resultEl.textContent = '';
+    this.explanationEl.textContent = '';
+  }
+
+  updateWeightBar() {
+    const sumWeight = [...this.selectedTraits].reduce((acc, t) => acc + t.weight, 0);
+    const maxAbsWeight = 10; // чуть больше для новых вариантов
+    const percent = Math.min(Math.abs(sumWeight) / maxAbsWeight * 100, 100);
+
+    this.weightBarEl.style.width = percent + '%';
+
+    if (sumWeight >= 0) {
+      this.weightBarEl.classList.remove('negative');
+      this.weightBarEl.textContent = sumWeight.toFixed(1);
+    } else {
+      this.weightBarEl.classList.add('negative');
+      this.weightBarEl.textContent = sumWeight.toFixed(1);
+    }
+  }
+
+  makePrediction() {
+    const sumWeight = [...this.selectedTraits].reduce((acc, t) => acc + t.weight, 0);
+
+    let prediction = '';
+    if (sumWeight > 3) {
+      prediction = 'Молодой (18-30 лет)';
+    } else if (sumWeight >= 0) {
+      prediction = 'Средний возраст (31-50 лет)';
+    } else {
+      prediction = 'Старший возраст (51+ лет)';
+    }
+
+    this.resultEl.textContent = `Предсказание: ${prediction}`;
+
+    // Пошаговое объяснение влияния
+    let explanationText = 'Как алгоритм пришёл к выводу:\n\n';
+    [...this.selectedTraits].forEach(t => {
+      explanationText += `- "${t.label}" влияет с весом ${t.weight > 0 ? '+' : ''}${t.weight.toFixed(1)}: ${t.detail}\n`;
+    });
+
+    this.explanationEl.textContent = explanationText;
+  }
+}
+
+customElements.define('algo-detective-game', AlgoDetectiveGame);
+</script>
+
+
+
+
+
+
+
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <style>
+  .bord-click {
+  position: relative;
+  text-decoration: none;
+
+  display: inline-block;           /* Чтобы transform работал правильно */
+  text-decoration: none;
+  transition: transform 0.3s ease; /* Плавный переход */
+  font-size: 16px;
+
+  
+}
+
+.bord-click:hover {
+  transform: scale(1.2);  
+}
+
+  .bord-click1 {
+  position: relative;
+  text-decoration: none;
+  
+  display: inline-block;           /* Чтобы transform работал правильно */
+  text-decoration: none;
+  transition: transform 0.3s ease; /* Плавный переход */
+  font-size: 16px;
+
+  
+}
+
+.bord-click1:hover {
+  transform: scale(1.2);  
+}
+
+  .bord-click2 {
+  position: relative;
+  text-decoration: none;
+  color: black;
+  display: inline-block;           /* Чтобы transform работал правильно */
+  text-decoration: none;
+  transition: transform 0.3s ease; /* Плавный переход */
+  font-size: 16px;
+
+  
+}
+
+.bord-click2:hover {
+  transform: scale(1.2);  
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+
